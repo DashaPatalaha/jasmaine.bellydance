@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jasmin Belly Dance</title>
+
+    <style>
+
+        /* СТИЛИ (CSS) */
+
+        body {
+
+            margin: 0;
+
+            font-family: 'Arial', sans-serif;
+
+            background-color: #800000; /* изменено на бордовый */
+
+            color: #fff; /* текст теперь белый */
+
+            overflow-x: hidden;
+
+        }
+
+        nav ul {
+
+            list-style: none;
+
+            background-color: #5c1a1b; /* изменено на темно-бордовый */
+
+            padding: 10px;
+
+            display: flex;
+
+            justify-content: center;
+
+        }
+
+        nav ul li {
+
+            margin: 0 15px;
+
+        }
+
+        nav ul li a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            font-size: 1.1em;
+
+            transition: color 0.3s;
+
+        }
+
+        nav ul li a:hover {
+
+            color: #ffd6c0;
+
+        }
+
+        .carousel {
+
+            overflow: hidden;
+
+            display: flex;
+
+            position: relative;
+
+            animation: scrollCarousel 15s infinite linear;
+
+        }
+
+        .carousel img {
+
+            min-width: 100%;
+
+            height: 300px;
+
+            object-fit: cover;
+
+        }
+
+        .carousel .arrow-left,
+
+        .carousel .arrow-right {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            background-color: rgba(0, 0, 0, 0.5);
+
+            color: #fff;
+
+            padding: 10px;
+
+            font-size: 2em;
+
+            cursor: pointer;
+
+            z-index: 10;
+
+        }
+
+        .carousel .arrow-left {
+
+            left: 10px;
+
+        }
+
+        .carousel .arrow-right {
+
+            right: 10px;
+
+        }
+
+        @keyframes scrollCarousel {
+
+            0% { transform: translateX(0); }
+
+            100% { transform: translateX(-100%); }
+
+        }
+
+        .content {
+
+            padding: 40px 20px;
+
+            text-align: center;
+
+            animation: fadeIn 2s ease-in;
+
+        }
+
+        .images-row {
+
+            display: flex;
+
+            justify-content: center;
+
+            margin-top: 30px;
+
+            animation: fadeIn 2s ease-in;
+
+        }
+
+        .image-container {
+
+            margin: 0 15px;
+
+            text-align: center;
+
+            transition: transform 0.3s, box-shadow 0.3s;
+
+        }
+
+        .image-container img {
+
+            width: 250px;
+
+            height: 250px;
+
+            border-radius: 20px;
+
+            border: 5px solid;
+
+            border-image: linear-gradient(45deg, #800000, #5c1a1b) 1;
+
+            transition: all 0.5s ease;
+
+        }
+
+        .image-container img:hover {
+
+            transform: scale(1.05) rotate(2deg);
+
+            box-shadow: 0 0 25px #800000;
+
+        }
+
+        .arrow {
+
+            margin-top: 10px;
+
+            font-weight: bold;
+
+            color: #800000;
+
+        }
+
+        .modal {
+
+            display: block;
+
+            position: fixed;
+
+            z-index: 1000;
+
+            left: 0;
+
+            top: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: rgba(140, 0, 0, 0.8);
+
+        }
+
+        .modal-content {
+
+            background: #800000; /* изменено на бордовый */
+
+            margin: 15% auto;
+
+            padding: 30px;
+
+            width: 320px;
+
+            text-align: center;
+
+            border-radius: 10px;
+
+            animation: zoomIn 1s;
+
+        }
+
+        .modal-content input {
+
+            width: 90%;
+
+            margin: 10px 0;
+
+            padding: 10px;
+
+            border: 1px solid #800000;
+
+            border-radius: 5px;
+
+        }
+
+        .modal-content button {
+
+            background: linear-gradient(45deg, #800000, #b37a4c);
+
+            color: white;
+
+            padding: 10px 20px;
+
+            margin-top: 15px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            font-size: 1em;
+
+            cursor: pointer;
+
+            transition: background 0.4s;
+
+        }
+
+        .modal-content button:hover {
+
+            background: linear-gradient(45deg, #b37a4c, #800000);
+
+        }
+
+        .about-content {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 30px;
+
+            animation: fadeIn 2s ease-in;
+
+        }
+
+        .circle-image {
+
+            width: 220px;
+
+            height: 220px;
+
+            border-radius: 50%;
+
+            border: 6px solid;
+
+            border-image: linear-gradient(45deg, #800000, #5c1a1b) 1;
+
+            margin-bottom: 20px;
+
+            transition: transform 0.5s;
+
+        }
+
+        .circle-image:hover {
+
+            transform: scale(1.1);
+
+        }
+
+        .highlight {
+
+            text-align: center;
+
+            font-size: 2.5em;
+
+            background: linear-gradient(45deg, #800000, #5c1a1b);
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            margin: 40px 0;
+
+        }
+
+        .schedule {
+
+            margin: 30px auto;
+
+            width: 90%;
+
+            border-collapse: collapse;
+
+            box-shadow: 0 0 20px rgba(128, 0, 0, 0.4);
+
+        }
+
+        .schedule th, .schedule td {
+
+            padding: 20px;
+
+            border: 1px solid #800000;
+
+            font-size: 1.2em;
+
+        }
+
+        .invite-text {
+
+            text-align: center;
+
+            font-size: 1.5em;
+
+            margin-top: 30px;
+
+            animation: fadeIn 3s ease-in;
+
+        }
+
+        footer {
+
+            background-color: #5c1a1b; /* изменено на темно-бордовый */
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px;
+
+            font-size: 1em;
+
+        }
+
+        footer a {
+
+            color: white;
+
+            text-decoration: underline;
+
+            font-weight: bold;
+
+        }
+
+        footer a:hover {
+
+            color: #ffd6c0;
+
+        }
+
+        .big-invite {
+
+            font-size: 2em;
+
+            margin-top: 20px;
+
+            animation: pulse 2s infinite;
+
+        }
+
+        @keyframes fadeIn {
+
+            from { opacity: 0; transform: translateY(20px); }
+
+            to { opacity: 1; transform: translateY(0); }
+
+        }
+
+        @keyframes zoomIn {
+
+            from { transform: scale(0.5); opacity: 0; }
+
+            to { transform: scale(1); opacity: 1; }
+
+        }
+
+        @keyframes pulse {
+
+            0% { transform: scale(1); }
+
+            50% { transform: scale(1.05); }
+
+            100% { transform: scale(1); }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+<!-- Регистрация -->
+
+<div class="modal" id="registrationModal">
+
+    <div class="modal-content">
+
+        <h2>Реєстрація</h2>
+
+        <input type="text" placeholder="Ваше ім'я" id="nameInput">
+
+        <input type="email" placeholder="Електронна пошта" id="emailInput">
+
+        <button onclick="closeModal()">Продовжити</button>
+
+    </div>
+
+</div>
+
+
+
+<!-- Меню -->
+
+<nav>
+
+    <ul>
+
+        <li><a href="#history">Історія танців</a></li>
+
+        <li><a href="#about">Про нас</a></li>
+
+        <li><a href="#schedule">Розклад</a></li>
+
+    </ul>
+
+</nav>
+
+
+
+<!-- Карусель -->
+
+<div class="carousel">
+
+    <div class="arrow-left">&#10094;</div>
+
+    <img src="https://via.placeholder.com/1200x300?text=Танець+1" alt="">
+
+    <img src="https://via.placeholder.com/1200x300?text=Танець+2" alt="">
+
+    <img src="https://via.placeholder.com/1200x300?text=Танець+3" alt="">
+
+    <div class="arrow-right">&#10095;</div>
+
+</div>
+
+
+
+<!-- Страница 1: Історія -->
+
+<div class="content" id="history">
+
+    <h1>Історія Східних Танців</h1>
+
+    <p>
+
+        Східні танці мають давню історію, яка бере свій початок у Стародавньому Єгипті, Індії та Месопотамії.
+
+        Згодом ці танці поширились по всьому Близькому Сходу та Північній Африці.
+
+        Вони стали символом жіночої краси, грації та духовності. Сьогодні східні танці є популярним мистецтвом і формою фітнесу по всьому світу.
+
+    </p>
+
+
+
+    <div class="images-row">
+
+        <div class="image-container">
+
+            <a href="https://uk.wikipedia.org/wiki/Східний_танець" target="_blank">
+
+                <img src="https://via.placeholder.com/250?text=Вікіпедія" alt="">
+
+            </a>
+
+            <div class="arrow">Натисни</div>
+
+        </div>
+
+        <div class="image-container">
+
+            <a href="https://instagram.com/jasmin.belly_dance" target="_blank">
+
+                <img src="https://via.placeholder.com/250?text=Instagram" alt="">
+
+            </a>
+
+            <div class="arrow">Натисни</div>
+
+        </div>
+
+        <div class="image-container">
+
+            <a href="https://facebook.com/jasmin.belly_dance" target="_blank">
+
+                <img src="https://via.placeholder.com/250?text=Facebook" alt="">
+
+            </a>
+
+            <div class="arrow">Натисни</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- Страница 2: Про нас -->
+
+<div class="about-content" id="about">
+
+    <div class="highlight">Чому варто обрати нас?</div>
+
+    <img src="https://via.placeholder.com/220" class="circle-image" alt="Тренери">
+
+    <p>
+
+        Ми — Даша та Аліна — професійні танцівниці, що вигравали міжнародні конкурси у багатьох країнах!
+
+        Наші тренування допоможуть розкрити вашу жіночність, пластику і гармонію душі та тіла.
+
+    </p>
+
+</div>
+
+
+
+<!-- Страница 3: Розклад -->
+
+<div class="content" id="schedule">
+
+    <h1>Розклад занять</h1>
+
+    <table class="schedule">
+
+        <tr>
+
+            <th>День</th>
+
+            <th>Час</th>
+
+            <th>Група</th>
+
+        </tr>
+
+        <tr>
+
+            <td>Понеділок</td>
+
+            <td>17:00 - 18:30</td>
+
+            <td>Діти</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Середа</td>
+
+            <td>17:00 - 18:30</td>
+
+            <td>Діти</td>
+
+        </tr>
+
+        <tr>
+
+            <td>П’ятниця</td>
+
+            <td>17:00 - 18:30</td>
+
+            <td>Діти</td>
+
+        </tr>
+
+    </table>
+
+    <div class="invite-text">Ми чекаємо саме на тебе!</div>
+
+</div>
+
+
+
+<!-- Footer -->
+
+<footer>
+
+    <p>Деталі за телефонами:</p>
+
+    <p>Дар'я: <a href="tel:+380666575899">0666575899</a> | Аліна: <a href="tel:+380664468542">0664468542</a></p>
+
+    <p>
+
+        Instagram: <a href="https://instagram.com/jasmin.belly_dance" target="_blank">@jasmin.belly_dance</a><br>
+
+        Facebook: <a href="https://facebook.com/jasmin.belly_dance" target="_blank">@jasmin.belly_dance</a>
+
+    </p>
+
+    <div class="big-invite">МИ ЧЕКАЄМО САМЕ НА ТЕБЕ!</div>
+
+</footer>
+
+
+
+<!-- СКРИПТ для закрытия модалки -->
+
+<script>
+
+    function closeModal() {
+
+        document.getElementById('registrationModal').style.display = 'none';
+
+    }
+
+</script>
+
+
+
+</body>
+
+</html>
+
